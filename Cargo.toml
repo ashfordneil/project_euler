@@ -8,3 +8,7 @@ authors = ["Neil Ashford <ashfordneil0@gmail.com>"]
 [[bin]]
 name = "p1"
 path = "src/p1.rs"
+
+[[bin]]
+name = "p2"
+path = "src/p2.rs"
