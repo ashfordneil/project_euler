@@ -17,7 +17,12 @@ impl Iterator for PrimeGenerator {
             None => 2,
             Some(start) => {
                 (*start..)
-                    .filter(|&number| self.found.iter().all(|divisor| number % divisor > 0))
+                    .filter(|&number| {
+                        self.found
+                            .iter()
+                            .take_while(|&prime| prime * prime < number)
+                            .all(|divisor| number % divisor > 0)
+                    })
                     .next()
                     .unwrap()
             }
